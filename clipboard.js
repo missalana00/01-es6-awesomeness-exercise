@@ -1,56 +1,36 @@
-#!/usr/bin/env node
 
-// console.log("Test for terminal");
-
-
-// Create a function that will perform a cheer
-
-const myCheer = (nameToCheer) => {
+// Below is the way Joe Shepherd completed the exercise. 
 
 
-  // Take the value passed into the function and set it to uppercase using .toUpperCase() which is a 
-  // method that returns the calling string value converted to all upper case letters
+console.log("Hello, world!");
 
-  let cheerToCaps = nameToCheer.toUpperCase();
+// Cheer
 
+const first = 'Joe'; //const
+const second = 'Shep'; //const
 
-  // Take what is now an uppercase string and turn it into an array using The Array.from() method, 
-  //  which  creates a new Array instance from an array-like or iterable object.
+// Object literal shorthand
 
-// Example from MDN: 
+const myName = { first, second }  //const , making an object out of the above two variables and
+// then passing the object into the function below
 
-//const bar = ["a", "b", "c"];
-// Array.from(bar);
-// ["a", "b", "c"]
+// Passing an object in below instead of individual arguments
+                              
+const nodeCheer = ({first, second}) => { // destructuring assignment
 
-// Array.from('foo');
-// ["f", "o", "o"]
+  // Function is saying let name = template literal 
 
+  let name = `${first} ${second}`.toUpperCase(); // string template literals, let
 
-  let cheerToArray = Array.from(cheerToCaps);
+  [...first, ...second].forEach( (letter) => { // spread operator and fat arrow function
 
-  myCheer("Bob Ross");
+    let conj = 'aeioufhlmnrsx'.includes(letter.toLowerCase()) ? 'an' : 'a' // `includes()`. Surprise! It's ES6
 
+    console.log(`Gimmmie ${conj} ${letter.toUpperCase()}!`); // string template literals again
+  });
 
+  console.log(`What's that spell?\n${name}!`);
 
-  
-// logged to the console/terminal
+};
 
-
-  for(var i = 0; i < cheerArray.length; i++) {
-    let thisLetter = cheerArray[i];
-    if(cheerArray[i] === "A" | "E" | "I" | "O" | "U") {
-      //delay by one second
-      //for each index value, multiple it by one second to get a staggerd
-      //one second delay for each interation through the loop
-      setTimeout(()=>console.log(`Give me an ${thisLetter}`), (1000 * i));
-      } else if(cheerArray[i]=== " ") {
-
-      } else {
-       setTimeout(()=>console.log(`Give me a ${thisLetter}`), (1000 * i));
-      }
-    }
-    setTimeout(()=>console.log(`What's that spell?`), (1000 * (cheerArray.length + 1)));
-    setTimeout(()=>console.log(`${cheerCaps}!`), (1000 * (cheerArray.length + 2)));
-    // console.log(`${cheerCaps}!`);
-  }
+nodeCheer(myName);
